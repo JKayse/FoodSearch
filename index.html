@@ -1,0 +1,52 @@
+<html>
+
+<head>
+<title> Map my route! </title>
+  </style>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
+  </style> 
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <link rel="stylesheet" type="text/css" href="css/map.css">
+  <script type="text/javascript" src="js/map.js"></script>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOI39si6Z8mvrtFmlzDzNPfVYqmLFLbPM">
+  </script> 
+</head>
+
+<body>
+
+  <div id="tfheader">
+    <h1>Plan your day! </h1>
+    <div id="tfnewsearch">
+        <input type="text" id="searchValue" class="tftextinput" name="q" size="21" maxlength="120">
+        <input type="submit" value="search" id="enter" class="tfbutton">
+    </div>
+    <div class="tfclear"></div>
+  </div>
+  
+
+  <div style="float:right; width: 50%">
+    <h2 id='estimatedTime'>filler</h2>
+    <div id="map-canvas"></div>
+  </div>
+
+  <div style="float:left;width: 50%;">
+    <h2 id="intro" >
+      The whole world is in motion. We'd like to help you stay on track. So what would you like to do today?
+    </h2>
+  </div>
+
+  <div style="float:left"; width: 80%>
+    <ul style="font-family:verdana" font-size:50px>
+      <h2 style="font-family:verdana"> <i> <b><strong>Route the following:</strong></b> </i> </h2>
+        <b id="list"> 
+        </b>
+    </ul> <br>
+    <center> <input type="submit" id="route" class="route" value="Route" name="Route"/> </center>
+  </div> 
+</body>
+
+
+</html>
