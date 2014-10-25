@@ -44,30 +44,42 @@ function initialize() {
       title:"Current Location"
   });
   markerArray.push(marker);
-  /*
+
+    console.log(initialLocation);
+  
   if($("#searchValue").val() !==""){
     $.ajax({
-      type: "POST",
-      url: "api/SearchFriend",
-      data: {
-        //
-      },
-      success: function(json){
-        json = JSON.parse(json);
-        json = json.businesses;
-        for(var i = 0; i < json.length; i++){
-          var business = json[i];
-          var name = business.name;
-          var address = business.location.display_address;
-          var addressString="";
-          for(var j=0; j < address.length;j++){
-            addressString+= address[j] + " ";
+      type: 'GET',
+      url: '/get_search_params/'+$("#searchValue").val()+'/'+initialLocation.k+'/'+initialLocation.B,
+      dataType: 'json',
+      success: function(response) {
+          var res = JSON.parse(response);
+          var res =  res.businesses;
+          for(var i = 0; i < res.length;i++){
+            var name = res[i].name;
+            var coord = res[i].coordinate;
+            var lon = coord.longitude;
+            var lat = coord.latitude;
+            var address = res[i].location.display_address;
+            var phone = res[i].display_phone;
+             marker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat, lon),
+                map: map,
+                title: name
+              });
+              markerArray.push(marker);
           }
-        }
+          
+          alert("worked");
+   
+   
+      },
+      error: function(x,y,z) {
+          alert(x.responseText);
       }
     });
-  }*/
-
+  }
+  
   if($("#searchValue").val() ===""){
 
     marker = new google.maps.Marker({
